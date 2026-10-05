@@ -1,0 +1,205 @@
+'''
+Program untuk merekapitulasi sebaran titik api kebakaran hutan dan lahan.
+Program ini bertujuan untuk memetakan dampak kerusakan lahan secara cepat berdasarkan data satelit BMKG,
+sehingga tim lapangan dapat mengalokasikan bantuan helikopter bom air (water bombing) secara tepat sasaran. 
+
+Nama	: Gabriel Ado Ramos Tukan
+NIM	 : 2609106038
+Kelas   : B1
+'''
+
+'''
+Variabel total luas terbakar (Hektare)
+'''
+kalimantan_gambut = 0
+kalimantan_mineral = 0
+sumatera_gambut = 0
+sumatera_mineral = 0
+
+
+'''
+Fungsi digunakan agar logika validasi menu tidak perlu diketik ulang dan lebih efisien
+'''
+def validasiMenu (menu, max):
+	'''
+	Poin plus: penanganan input kosong
+	'''
+	if len(menu) == 0:
+		print ('[\033[1;31mX\033[0m] Input harus diisi.\n')
+		return False
+	
+	'''
+	Penanganan input bukan angka
+	'''
+	if not menu.isdigit():
+		print ('[\033[1;31mX\033[0m] Input harus angka.\n')
+		return False
+	
+	menu = int (menu) # ubah ke angka
+
+	'''
+	Penanganan input tidak valid
+	'''
+	if menu < 1 or menu > max:
+		print ('[\033[1;31mX\033[0m] Input tidak valid.\n')
+		return False
+	
+	return True
+
+'''
+Fungsi digunakan agar logika validasi angka tidak perlu diketik ulang dan lebih efisien
+'''
+def validasiAngka (num):
+	'''
+	Poin plus: penanganan input kosong
+	'''
+	if len(num) == 0:
+		print ('[\033[1;31mX\033[0m] Input harus diisi.\n')
+		return False
+	
+	'''
+	Penanganan input bukan angka
+	'''
+	if not num.isdigit():
+		print ('[\033[1;31mX\033[0m] Input harus angka.\n')
+		return False
+	
+	return True
+
+def bagianKalimantanGambut():
+	global kalimantan_gambut
+	while (True):
+		titik_api = input ('Masukan jumlah titik api : ')
+		if not validasiAngka(titik_api):
+				continue
+		kalimantan_gambut += int (titik_api) * 5 # Dalam satuan Hektare
+		is_continue = input ('Apakah anda masih mau input data titik api lagi? (Y/T) ')
+				
+		if is_continue.upper() == 'Y':
+			print ('\n')
+		elif is_continue.upper() == 'T':
+			print (f'Luas lahan yang terbakar adalah {kalimantan_gambut} Hektare.\n')
+			return
+		else:
+			print ('[\033[1;31mX\033[0m] Input tidak valid.\n')
+
+'''
+Fitur Login
+'''
+while (True):
+	print ('=== Halaman Login ===')
+	
+	username = input ('Masukkan Username : ')
+	password = input ('Masukkan Password : ')
+	
+	'''
+	Poin plus: penanganan input kosong
+	'''
+	if len(username) == 0 or len(password) == 0:
+		print ('[\033[1;31mX\033[0m] Username atau password harus diisi.\n')
+		continue
+	
+	'''
+	Poin plus: fitur login bisa mendeteksi jika hanya password yang salah atau username saja yang salah.
+	
+	NOTE: Implementasi pada sistem login yang sebenarnya sebaiknya tidak memberikan respons apakah
+			hanya username yang salah atau hanya password yang salah karena pemberitahuan seperti ini
+			dapat mempermudah proses peretasan yang dilakukan oleh hacker/cracker, biasanya sistem
+			login nyata hanya menampilkan 'username atau password salah' jika username atau password salah. 
+	'''
+	if username == 'gabriel':
+		if password == '038':
+			print ('[\033[1;32m✓\033[0m] Login berhasil.\n')
+			break
+		else:
+			print ('[\033[1;31mX\033[0m] Login gagal: password salah.\n')
+	else:
+		print ('[\033[1;31mX\033[0m] Login gagal: username salah.\n')
+
+'''
+Input wilayah pulau dan jenis lahan
+'''
+while (True):
+	print ('=== Pilih Pulau ===')
+	print ('[1] Kalimantan')
+	print ('[2] Sumatera')
+	
+	pulau = input ('Pilih menu : ')
+	
+	if not validasiMenu(pulau, 2):
+		continue
+	
+	pulau = int (pulau)
+	
+	print ('\n=== Pilih Jenis Lahan ===')
+	print ('[1] Gambut')
+	print ('[2] Mineral')
+	
+	lahan = input ('Pilih menu : ')
+	
+	if not validasiMenu(lahan, 2):
+		continue
+	
+	lahan = int (lahan)
+	
+	if pulau == 1:
+		if lahan == 1:
+			bagianKalimantanGambut()
+		if lahan == 2:
+			while (True):
+				titik_api = input ('Masukan jumlah titik api : ')
+				if not validasiAngka(titik_api):
+						continue
+				kalimantan_mineral += int (titik_api) * 5 # Dalam satuan Hektare
+				is_continue = input ('Apakah anda masih mau input data titik api lagi? (Y/T) ')
+				
+				if is_continue.upper() == 'Y':
+					print ('\n')
+					continue
+				elif is_continue.upper() == 'T':
+					print (f'Luas lahan yang terbakar adalah {kalimantan_mineral} Hektare.\n')
+					break
+				else:
+					print ('[\033[1;31mX\033[0m] Input tidak valid.\n')
+		else:
+			print ('[\033[1;31mX\033[0m] Input tidak valid.\n')
+	elif pulau == 2:
+		if lahan == 1:
+			while (True):
+				titik_api = input ('Masukan jumlah titik api : ')
+				if not validasiAngka(titik_api):
+						continue
+				sumatera_gambut += int (titik_api) * 5 # Dalam satuan Hektare
+				is_continue = input ('Apakah anda masih mau input data titik api lagi? (Y/T) ')
+				
+				if is_continue.upper() == 'Y':
+					print ('\n')
+					continue
+				elif is_continue.upper() == 'T':
+					print (f'Luas lahan yang terbakar adalah {sumatera_gambut} Hektare.\n')
+					break
+				else:
+					print ('[\033[1;31mX\033[0m] Input tidak valid.\n')
+		if lahan == 2:
+			while (True):
+				titik_api = input ('Masukan jumlah titik api : ')
+				if not validasiAngka(titik_api):
+						continue
+				sumatera_mineral += int (titik_api) * 5 # Dalam satuan Hektare
+				is_continue = input ('Apakah anda masih mau input data titik api lagi? (Y/T) ')
+				
+				if is_continue.upper() == 'Y':
+					print ('\n')
+					continue
+				elif is_continue.upper() == 'T':
+					print (f'Luas lahan yang terbakar adalah {sumatera_mineral} Hektare.\n')
+					break
+				else:
+					print ('[\033[1;31mX\033[0m] Input tidak valid.\n')
+		else:
+			print ('[\033[1;31mX\033[0m] Input tidak valid.\n')
+
+					
+
+		
+	
