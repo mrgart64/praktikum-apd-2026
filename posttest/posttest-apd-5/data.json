@@ -1,0 +1,58 @@
+{
+    "tables": {
+        "penerima": {
+            "067": {
+                "nama": "Asep",
+                "nik": "067",
+                "alamat": "Jl. Nusyrwan Ismail No. 67",
+                "password": "asepasep123"
+            },
+            "068": {
+                "nama": "Supri",
+                "nik": "068",
+                "alamat": "Jl. Nusyrwan Ismail No. 68",
+                "password": "jalanrusak67"
+            },
+            "069": {
+                "nama": "Rusdi",
+                "nik": "069",
+                "alamat": "Jl. Nusyrwan Ismail No. 69",
+                "password": "barbershop66"
+            },
+            "070": {
+                "nik": "070",
+                "nama": "Gatau",
+                "alamat": "Jl. Gatau",
+                "password": "gatau"
+            },
+            "306": {
+                "nik": "306",
+                "nama": "Hydrant",
+                "alamat": "Jl. Wkwkland No. 56",
+                "password": "hydrant"
+            }
+        },
+        "pengajuan": {
+            "068": {
+                "desc": "Mau dapat MBG",
+                "status": "disetujui"
+            },
+            "306": {
+                "desc": "Butuh air 1000 kilogram",
+                "status": "ditolak"
+            },
+            "070": {
+                "desc": "Saya ingin mendapatkan pencairan dana sembako agar saya bisa berinvestasi melalui crypto dan NFT, saya butuh modal agar bisa berkembang",
+                "status": "ditolak"
+            }
+        },
+        "blacklist": {
+            "306": {
+                "desc": "Air 1 ton buat apa??"
+            },
+            "070": {
+                "desc": "Terdeteksi potensi penyalahgunaan dana sembako yang tidak sesuai dengan kebijakan program, akun diblokir untuk pencegahan penyalahgunaan. Silakan datangi kantor kami untuk melakukan verifikasi dan klarifikasi lebih lanjut untuk mempertanggungjawabkan deskripsi pengajuan yang Anda buat. Pastikan ada membawa semua dokumen secara lengkap, Anda dapat mengajukan kembali jika Anda dapat mempertanggungjawabkan semuanya di kantor kami."
+            }
+        }
+    }
+}
