@@ -2,16 +2,16 @@
     "tables": {
         "penerima": {
             "067": {
-                "nama": "Asep",
                 "nik": "067",
-                "alamat": "Jl. Nusyrwan Ismail No. 67",
+                "nama": "Asep Asep",
+                "alamat": "Jl. Nusyirwan Ismail No. 67",
                 "password": "asepasep123"
             },
             "068": {
                 "nama": "Supri",
                 "nik": "068",
                 "alamat": "Jl. Nusyrwan Ismail No. 68",
-                "password": "jalanrusak67"
+                "password": "testing67"
             },
             "069": {
                 "nama": "Rusdi",
@@ -30,6 +30,12 @@
                 "nama": "Hydrant",
                 "alamat": "Jl. Wkwkland No. 56",
                 "password": "hydrant"
+            },
+            "001": {
+                "nik": "001",
+                "nama": "test",
+                "alamat": "Jl. Test",
+                "password": "test"
             }
         },
         "pengajuan": {
@@ -43,6 +49,14 @@
             },
             "070": {
                 "desc": "Saya ingin mendapatkan pencairan dana sembako agar saya bisa berinvestasi melalui crypto dan NFT, saya butuh modal agar bisa berkembang",
+                "status": "ditolak"
+            },
+            "001": {
+                "desc": "testing",
+                "status": "disetujui"
+            },
+            "067": {
+                "desc": "asep",
                 "status": "ditolak"
             }
         },

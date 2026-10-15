@@ -5,6 +5,22 @@ Poin (+):
 - Error Handling (Tidak menggunakan Try dan Except)
 - Menggunakan Nested List
 - Menggunakan Clear Terminal dengan import os
+
+Nama    : Gabriel Ado Ramos Tukan
+NIM     : 2609106038
+
+Lihat data.json untuk mendapatkat informasi login yang lebih lengkap atau lihat inforasi login di bawah ini
+
+Login admin: {"username": "admin", "password": "Admin#1234"}
+
+Login penerima:
+[
+  {"username": "067", "password": "asepasep123"},
+  {"username": "068", "password": "testing67"},
+  {"username": "069", "password": "barbershop66"},
+  {"username": "070", "password": "gatau"},
+  {"username": "306", "password": "hydrant"}
+]
 '''
 
 import os
@@ -18,14 +34,13 @@ blacklist = app_data['tables']['blacklist']
 
 session = {}
 is_admin = False
-
 os.system('clear')
-print('Selamat datang di aplikasi Sistem Pencatatan Rakyat Kurang Mampu dan Pembagian Sembako')
-username = input('Masukkan username Anda : ')
-password = input('Masukkan password Anda : ')
 
 loop = True
 while(loop):
+    print('Selamat datang di aplikasi Sistem Pencatatan Rakyat Kurang Mampu dan Pembagian Sembako')
+    username = input('Masukkan username Anda : ')
+    password = input('Masukkan password Anda : ')
     if username == 'admin':
         if password == 'Admin#1234':
             print('[V] Berhasil login sebagai admin')
@@ -192,6 +207,7 @@ while (1):
             pengajuan[session['nik']] = {'desc': desc, 'status': 'menunggu persetujuan'}
             json.dump(app_data, open('data.json', 'w'), indent=4)
             print('Pengajuan berhasil dibuat.')
+            input('\nTekan enter untuk melanjutkan...\n')
         elif menu == 2:
             os.system('clear')
             if not pengajuan.get(session['nik']):
@@ -214,7 +230,7 @@ while (1):
                 print('Akun Anda terkena banned, Anda tidak dapat membuat\nulang pengajuan dan Anda tidak berhak mendapatkan sembako.\nSilakan datangi kantor pembagian sembako untuk verifikasi data dan klarifikasi\nlalu Anda membuat kembali pengajuan melalui aplikasi ini dan melewati prosedur birokasi sesuai protokol')
             
             if pengajuan[session['nik']]['status'] == 'ditolak' and not kena_banned:
-                print('Sayang sekali, Anda dapat membuat ulang pengajuan dan\nkembali melewati prosedur birokasi sesuai protokol')
+                print('Pengajuan ditolak, Anda dapat membuat ulang pengajuan dan\nkembali melewati prosedur birokasi sesuai protokol')
             
             if kena_banned:
                 print('Status akun : TIDAK SEHAT / KENA BANNED')
